@@ -3,6 +3,19 @@
   background-color: #eedc83;
 
   .card-title {
+    font-weight: bold;
+  }
 
+  .actions {
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-end;
+
+    .remove-card {
+      background-color: #c32f2f;
+      color: white;
+      border: none;
+      padding: 6px;
+    }
   }
 }

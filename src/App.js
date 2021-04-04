@@ -1,10 +1,10 @@
 import './App.scss';
-import {Card} from './components/card/card';
+import {CardList} from './components/card-list/card-list';
 
 function App() {
     return (
         <div className="App">
-            <Card title='My card' text='Some text' />
+            <CardList/>
         </div>
     );
 }
