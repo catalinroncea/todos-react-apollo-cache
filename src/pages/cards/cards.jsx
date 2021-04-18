@@ -1,16 +1,23 @@
 import {CardList} from '../../components/card-list/card-list';
-import {useEffect, useState} from 'react';
-import cardsData from '../../cards.json';
+import {useLazyQuery} from '@apollo/client';
+import {GET_ALL_TODOS} from '../../operations/queries/queries';
+import {removeToDo} from '../../operations/mutations/mutations';
+import {useCallback, useEffect} from 'react';
+import {AddCard} from '../../components/add-card/add-card';
 
 export const CardsPage = () => {
-    const [cards, setCards] = useState([]);
-    const handleRemoveCard = id => {
-        setCards(cards.filter(card => card.id !== id));
-    };
-
-    useEffect(() => {
-        setCards([...cardsData.cards]);
+    const [loadAllTodos, {data}] = useLazyQuery(GET_ALL_TODOS);
+    const handleRemoveCard = useCallback(id => {
+        removeToDo(id);
     }, []);
 
-    return (<CardList cards={cards} handleRemoveCard={handleRemoveCard}/>);
+    useEffect(() => {
+        loadAllTodos();
+    }, [loadAllTodos])
+
+    return (
+        <div className='cards-page'>
+            <AddCard/>
+            <CardList cards={data?.todos} handleRemoveCard={handleRemoveCard}/>
+        </div>);
 };

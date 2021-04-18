@@ -14,12 +14,23 @@ import './fonts/Roboto/Roboto-Thin.ttf';
 import './fonts/Roboto/Roboto-ThinItalic.ttf';
 import './fonts/Roboto/Roboto-Black.ttf';
 import './fonts/Roboto/Roboto-BlackItalic.ttf';
+import {ApolloClient, ApolloProvider} from '@apollo/client';
+import {typeDefs} from './graphql/schema';
+import {cache} from './cache';
+
+const client = new ApolloClient({
+    cache,
+    connectToDevTools: true,
+    typeDefs
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <ApolloProvider client={client}>
+        <React.StrictMode>
+            <App/>
+        </React.StrictMode>
+    </ApolloProvider>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

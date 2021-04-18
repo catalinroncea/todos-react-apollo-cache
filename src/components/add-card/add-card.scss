@@ -1,0 +1,24 @@
+input, textarea {
+  display: block;
+  margin: 5px 0 10px 0;
+  width: 100%;
+  background-color: #f7f5f5;
+}
+
+label {
+  font-weight: bold;
+}
+
+.add-card {
+  margin: 0 auto;
+  padding: 15px;
+  max-width: 768px;
+  min-width: 320px;
+}
+
+.add-card-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+}
