@@ -1,0 +1,34 @@
+input, textarea {
+  display: block;
+  margin: 5px 0 10px 0;
+  width: 100%;
+  background-color: #f7f5f5;
+}
+
+.add-card-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+}
+
+.actions {
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+
+  .save-card, .remove-card {
+    color: white;
+    border: none;
+    padding: 6px;
+  }
+
+  .save-card {
+    background-color: green;
+    margin-right: 10px;
+  }
+
+  .remove-card {
+    background-color: #c32f2f;
+  }
+}

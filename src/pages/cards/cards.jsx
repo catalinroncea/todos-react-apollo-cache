@@ -10,14 +10,18 @@ export const CardsPage = () => {
     const handleRemoveCard = useCallback(id => {
         removeToDo(id);
     }, []);
+    const handleCardSaved = useCallback(async () => {
+        loadAllTodos();
+    }, [loadAllTodos]);
 
     useEffect(() => {
         loadAllTodos();
     }, [loadAllTodos])
 
     return (
-        <div className='cards-page'>
+        <div className="cards-page">
             <AddCard/>
-            <CardList cards={data?.todos} handleRemoveCard={handleRemoveCard}/>
+            <CardList cards={data?.todos} handleRemoveCard={handleRemoveCard}
+                      onCardSaved={handleCardSaved}/>
         </div>);
 };
